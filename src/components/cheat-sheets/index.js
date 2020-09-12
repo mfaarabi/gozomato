@@ -15,6 +15,7 @@ const BasicJS = () => {
   };
 
   // pass a function into parameter and invoking it
+  const myFunctionAsParameter = () => 'here is your string';
   const myElementFromStringFunction = stringf => <h4>{stringf()}</h4>;
 
   // control statement (if branching) using one-liner expressions
@@ -35,8 +36,9 @@ const BasicJS = () => {
         Here we'll talk about variables, (arrow) function, and string
         manipulation
       </div>
-      <div>{myElementFromStringFunction(myFunction(a, b, c))}</div>
-      <div>{myElementFromStringFunction(myFunctionWithOperation(a, b, c))}</div>
+      <div>{myFunction(a, b, c)}</div>
+      <div>{myFunctionWithOperation(a, b, c)}</div>
+      {myElementFromStringFunction(myFunctionAsParameter)}
       <div>The value of e is {e}</div>
       <div>The value of f is {f}</div>
       <div>The value of g is {g}</div>
@@ -94,7 +96,7 @@ const HelpfulJSXElements = () => (
       placeholder="input is used for data entry. There are multiple types of input other than text"
     />
     <button onClick={() => console.log('clicked')}>
-      {'<button>'} is used for capturing click event
+      {'<button>'} is used for capturing click event. Open console
     </button>
   </>
 );
@@ -114,6 +116,7 @@ const ComponentWithState = () => {
 };
 
 const BasicJS2 = () => {
+  // TODO: Basic JS 2
   return (
     <div>
       Here we'll talk about first class citizen function, lambda function, and
@@ -122,7 +125,12 @@ const BasicJS2 = () => {
   );
 };
 
-const LoopsAndConditions = () => {};
+const LoopsAndConditions = () =>
+  [1, 2, 3, 4, 5].map((e, idx) => (
+    <div key={idx}>
+      This loops for elements inside array. Current number is: {e}
+    </div>
+  ));
 
 const CheatSheets = () => (
   <>
