@@ -1,8 +1,8 @@
 import React from 'react';
-import CheatSheets from 'components/cheat-sheets';
+import YourComponentName from 'components/your-component-name';
 
 const App = () => {
-  return <CheatSheets />;
+  return <YourComponentName />;
 };
 
 export default App;

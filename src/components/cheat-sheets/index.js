@@ -116,7 +116,7 @@ const ComponentWithState = () => {
 };
 
 const BasicJS2 = () => {
-  // TODO: Basic JS 2
+  // TO DO: Basic JS 2
   return (
     <div>
       Here we'll talk about first class citizen function, lambda function, and
