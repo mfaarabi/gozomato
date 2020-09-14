@@ -1,0 +1,53 @@
+:root {
+  --gap: 5px;
+  --repeat: 3;
+  --post: 300px;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--gap);
+  width: calc(
+    calc(var(--post) * var(--repeat)) + calc(var(--gap) * var(--repeat))
+  );
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(var(--repeat), 1fr);
+  gap: var(--gap);
+}
+
+.post {
+  width: var(--post);
+  height: var(--post);
+}
+
+.profile {
+  display: grid;
+  grid-template-columns: var(--post) 2fr;
+  gap: 5px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.profilePictureImg {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.countsRow {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 20px;
+}
