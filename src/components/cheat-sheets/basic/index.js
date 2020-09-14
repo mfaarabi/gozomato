@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ComponentOnAnotherDirectory from 'components/component-on-another-directory';
+import ComponentOnAnotherDirectory from 'components/cheat-sheets/basic/component-on-another-directory';
 
 const BasicJS = () => {
   // declaring variable
