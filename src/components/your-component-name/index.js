@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 const yourApiCall = () => Promise.resolve('hello world!');
 
 const YourComponentName = () => {
-  [yourState, setYourState] = useState();
+  const [yourState, setYourState] = useState();
 
   useEffect(() => {
     yourApiCall.then(setYourState);
-  });
+  }, []);
 
   return (
     <div>
