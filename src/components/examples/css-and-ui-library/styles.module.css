@@ -1,1 +1,12 @@
-/* TO DO: css and ui component library */
+.main {
+  margin: 1em auto;
+  width: max-content;
+}
+
+.main > :not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.sideBySide {
+  display: flex;
+}
