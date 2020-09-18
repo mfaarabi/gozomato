@@ -5,7 +5,7 @@ import CitySuggestions from './city-suggestions';
 import Restaurants from './restaurants';
 
 const ApiCall = () => {
-  const cityQuery = 'bogor';
+  const cityQuery = 'jakarta';
   const [citySuggestions, setCitySuggestions] = useState([]);
   const [restaurants, setRestaurants] = useState([]);
   const [error, setError] = useState();
@@ -13,14 +13,14 @@ const ApiCall = () => {
   useEffect(() => {
     const searchRestaurantsFromCity = async () => {
       try {
-        const cities = parseCitySuggestions(await getCities(cityQuery));
-        setCitySuggestions(cities);
+        const cities = await getCities(cityQuery);
+        const parsedCities = parseCitySuggestions(cities.data);
+        setCitySuggestions(parsedCities);
 
-        if (cities.length > 0) {
-          const restaurants = parseSearchRestaurants(
-            await searchRestaurants(cities[0].id)
-          );
-          setRestaurants(restaurants);
+        if (parsedCities.length > 0) {
+          const restaurants = await searchRestaurants(parsedCities[0].id);
+          const parsedRestaurants = parseSearchRestaurants(restaurants.data);
+          setRestaurants(parsedRestaurants);
         }
       } catch (error) {
         setError(error.message);
@@ -41,7 +41,7 @@ const ApiCall = () => {
           ))}
         </div>
       </div>
-      {citySuggestions.length > 0 && (
+      {citySuggestions.length > 0 ? (
         <div>
           Restaurants with city entity id 74 are:
           <div>
@@ -50,6 +50,8 @@ const ApiCall = () => {
             ))}
           </div>
         </div>
+      ) : (
+        <div>No cities found</div>
       )}
     </div>
   );
