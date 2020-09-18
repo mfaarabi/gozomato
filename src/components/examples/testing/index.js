@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import InputAndButton from './input-and-button';
 import { apiCall } from './api';
 
 const Testing = () => {
-  const [input, setInput] = useState('default');
-  const [query, setQuery] = useState(input);
+  const defaultInput = 'default';
+  const [query, setQuery] = useState(defaultInput);
   const [result, setResult] = useState('');
 
   useEffect(() => {
@@ -13,16 +14,7 @@ const Testing = () => {
   return (
     <div>
       <div>result: {result}</div>
-      <form
-        onSubmit={e => {
-          e.preventDefault();
-          apiCall(input).then(setResult);
-        }}
-      >
-        <input value={input} onChange={e => setInput(e.target.value)} />
-        <button type="submit">change with form submit</button>
-      </form>
-      <button onClick={() => setQuery(input)}>change with useEffect</button>
+      <InputAndButton value={defaultInput} onChange={setQuery} />
     </div>
   );
 };
