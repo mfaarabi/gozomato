@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { getCities, searchRestaurants } from './api';
-import { parseCitySuggestions, parseSearchRestaurants } from './utils';
-import CitySuggestions from './city-suggestions';
-import Restaurants from './restaurants';
+import { getCities, searchRestaurants } from './utils/api';
+import { parseCitySuggestions, parseSearchRestaurants } from './utils/parser';
+import CitySuggestions from './components/city-suggestions';
+import Restaurants from './components/restaurants';
 
 const ApiCall = () => {
   const cityQuery = 'jakarta';
