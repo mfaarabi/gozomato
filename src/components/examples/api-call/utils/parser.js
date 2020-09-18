@@ -1,11 +1,11 @@
-export const parseCitySuggestions = data =>
-  data?.location_suggestions.map(e => {
+export const parseCityDetails = data =>
+  data.location_suggestions.map(e => {
     const { id, name } = e;
     return { id, name };
   });
 
 export const parseSearchRestaurants = data =>
-  data?.restaurants.map(e => {
+  data.restaurants.map(e => {
     const {
       id,
       name,

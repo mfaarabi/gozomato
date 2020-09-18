@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getCities, searchRestaurants } from './utils/api';
-import { parseCitySuggestions, parseSearchRestaurants } from './utils/parser';
+import { getCityDetails, searchRestaurants } from './utils/repository';
 import CitySuggestions from './components/city-suggestions';
 import Restaurants from './components/restaurants';
 
@@ -13,14 +12,12 @@ const ApiCall = () => {
   useEffect(() => {
     const searchRestaurantsFromCity = async () => {
       try {
-        const cities = await getCities(cityQuery);
-        const parsedCities = parseCitySuggestions(cities.data);
-        setCitySuggestions(parsedCities);
+        const cities = await getCityDetails(cityQuery);
+        setCitySuggestions(cities);
 
-        if (parsedCities.length > 0) {
-          const restaurants = await searchRestaurants(parsedCities[0].id);
-          const parsedRestaurants = parseSearchRestaurants(restaurants.data);
-          setRestaurants(parsedRestaurants);
+        if (cities.length > 0) {
+          const restaurants = await searchRestaurants(cities[0].id);
+          setRestaurants(restaurants);
         }
       } catch (error) {
         setError(error.message);

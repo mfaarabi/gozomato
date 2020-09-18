@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const ROOT_URL = 'https://developers.zomato.com/api/v2.1';
 
-export const getCities = city =>
+export const getCityDetails = city =>
   axios.get(`${ROOT_URL}/cities?q=${city}`, {
     headers: { 'user-key': process.env.REACT_APP_ZOMATO_API_KEY }
   });
