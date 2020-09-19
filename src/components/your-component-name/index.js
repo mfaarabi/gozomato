@@ -6,7 +6,7 @@ const YourComponentName = () => {
   const [yourState, setYourState] = useState();
 
   useEffect(() => {
-    yourApiCall.then(setYourState);
+    yourApiCall().then(setYourState);
   }, []);
 
   return (
